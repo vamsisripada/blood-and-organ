@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: "Courgette",sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 1%;
+            padding: 1%;
+            font-weight: 900;
+            font-size: 40px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h3 {
+            float: left;
+            margin: 1%;
+            margin-left: 8%;
+            padding: 1%;
+            font-weight: 700;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #b40a0a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        #home p,
+        #about p,
+        #donor p,
+        #receiver p{
+            margin: 2%;
+            padding: 1%;
+            font-size: 20px;
+            color: #171616eb;
+            font-family: monospace;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: block;
+            
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #logout-btn{
+            background-color: #101010;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #home {
+            background: url('https://nfhw.org.uk/wp-content/uploads/2019/04/OrganDonation-1.jpg') center/cover no-repeat;
+            color: #fff; /* Text color for better visibility on the background */
+            text-align: center;
+            padding: 100px 0; 
+            z-index: -9;
+        }
+        .hero {
+            color: #070707;
+            background: rgba(103, 102, 102, 0.459); /* Background overlay for text readability */
+            padding: 20px;
+            border-radius: 17px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            text-align: center;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+        #about {
+            background: url('your-about-image.jpg') center/cover no-repeat;
+            color: #151515; /* Text color for better visibility on the background */
+            padding: 100px 0;
+            text-align: center;
+        }
+        footer {
+            background-color: #333; 
+            color: #fff; 
+            padding: 20px; 
+            text-align: center; 
+        }
+        footer p {
+            margin: 0;
+        }
+        footer ul {
+            list-style: none;
+            padding: 0; 
+            font-size: 30px;
+        }
+        footer li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 10px;
+            margin-top: -15px;
+        }
+        footer li a {
+            font-size: 24px; 
+            color: #fff; 
+            text-decoration: none; 
+        }
+        .fa-facebook {
+            background: #45474908;
+            color: white;
+        }
+        .fa-instagram {
+            background: #45474900;
+            color: rgb(248, 243, 247);
+        }
+        .fa-twitter {
+            background: #45474900;
+            color: white;
+        }
+        .fa-linkedin {
+            background: #45474900;
+            color: white;
+        }
+
+        .fa-facebook:hover {
+            color: rgb(42, 110, 170);
+            font-size: 32px;
+        }
+        .fa-instagram:hover {
+            color: rgba(174, 55, 158, 0.779);
+            font-size: 32px;
+        }
+        .fa-twitter:hover {
+            color: rgb(103, 203, 253);
+            font-size: 32px;
+        }
+        .fa-linkedin:hover {
+            color: rgb(23, 88, 185);
+            font-size: 32px;
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+        }
+        @media (max-width: 700px) {
+            header {
+                padding: 10px 0;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+                cursor: pointer;
+                font-size: 24px;
+            }
+
+            #nav-ul {
+                background-color: #050504a1;
+                position: absolute;
+                margin: 1.5%;
+                z-index: 9;
+            }
+
+            nav ul.show {
+                display: block;
+                text-align: center;
+                width: 108px;
+                height: auto;
+                padding: 10px;
+                position: fixed;
+                margin: 50px 0;
+                line-height: 30px;
+            }
+
+            #logout-btn {
+                margin: 3px;
+                padding: 3px;
+                cursor: pointer;
+            }
+        }
+        #contact {
+            position: relative;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.texaschildrens.org/sites/default/files/blog/2014/02/transplant-photo.jpg');
+            background-size: cover;
+            filter: blur(3px); /* Apply the blur effect, you can adjust the amount (5px) as needed */
+            z-index: -1; /* Place it behind other content */
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically */
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 50%;
+            padding: 20px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #393939;
+        }
+        #donor {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .donor-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .donation {
+            width: 400px; 
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .donation:hover {
+            transform: translateY(-5px);
+        }
+
+        .donation-img img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .donation-description {
+            padding: 20px;
+        }
+
+        .donation-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .donation-description p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .donation-description a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #4CAF50;
+            transition: color 0.3s;
+        }
+
+        .donation-description a:hover {
+            color: #206e24;
+        }
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 6px;
+            float: left;
+        }
+    </style>
+    <title>Blood & Organ donation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Great Vibes" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Edu NSW ACT Foundation" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Dancing Script" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" type="text/css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+</head>
+
+<body>
+    <header>
+        <h1>Donor Zone</h1>
+        <nav>
+            <div id="menu-toggle" class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <ul id="nav-ul">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="be">Be a donor</a></li>
+                <li><a href="get">Get a donor</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="logout-btn">Sign out</button></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home">
+        <div class="hero">
+            <div class="welcome-message">
+                <p id="welcome-message"></p>
+            </div>
+            <h2>&#129656;Donate to Save Lives</h2>
+            <p>Make a difference by donating your organs and blood.</p><br>
+        </div>
+    </section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p style="font-size: 30px;font-weight: 400;">We are trying to help people since 10 years. Please move forward to save the lives</p><br>
+        <p style="margin-top: -3%;">Organ and Blood Donation is a non-profit organization dedicated to raising awareness about the
+        importance of organ and blood donation.
+        Our mission is to save lives by connecting donors with those in need. We believe that a single act of
+        donation can make a significant difference.</p>
+        <br><br>
+    </section>
+    <section id="donor">
+        <h2 class="donor-heading">Know more about blood and organ donation here..!!</h2>
+        <div class="donor-container">
+            <div class="donation">
+                <div class="donation-img">
+                    <img src="https://www.aimsindia.com/wp-content/uploads/2021/05/Plasma.png" alt="error">
+                </div>
+                <div class="donation-description">
+                    <h2 class="donation-titile">Plasma donation</h2>
+                    <p>Plasma donation saves lives by providing essential proteins and antibodies to treat various medical conditions by providing essential protiens and antibodies</p>
+                    <a href="https://www.donatingplasma.org/donation/what-is-plasma">Learn More</a>
+                </div>
+            </div>
+            <div class="donation">
+                <div class="donation-img">
+                    <img src="https://apollocancercentres.com/explore/donate/blood-donation/blood-donation.jpg" alt="">
+                </div>
+                <div class="donation-description">
+                    <h2 class="donation-titile">Blood donation</h2>
+                    <p>Blood donation saves lives by providing a critical supply of blood for medical treatments and emergencies.</p>
+                    <a href="https://www.cedars-sinai.org/programs/blood-donor-services/about-donation.html#:~:text=Donors%20are%20connected%20to%20a,to%2024%20times%20a%20year.">Learn More</a>
+                </div>
+            </div>
+            <div class="donation">
+                <div class="donation-img">
+                    <img src="https://i0.wp.com/verdict.justia.com/wp-content/uploads/2022/07/shutterstock_1733707856.jpeg?quality=90&resize=426%2C350&strip=all&fit=1000%25&ssl=1" alt="error">
+                </div>
+                <div class="donation-description">
+                    <h2 class="donation-titile">Organ donation</h2>
+                    <p>Organ donation offers the gift of life by allowing healthy organs to be transplanted to those in need.</p>
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6396593/#:~:text=Organ%20donation%20is%20defined%20as,lungs%2C%20bones%2C%20bone%20marrow%2C">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container container">
+            <div class="background-image"></div> 
+            <div class="form-container">
+                <label for="name">Name:</label>
+                <input type="text" placeholder="Your Name" required>
+                <label for="email">Email:</label>
+                <input type="email" placeholder="E-Mail" required>
+                <label for="message">Message:</label>
+                <textarea cols="30" rows="6" placeholder="Type Your Message" required></textarea>
+                <a href="#" class="btn btn-primary">Submit</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Donor Zone &copy; all rights reserved</p>
+        <ul>
+            <li><a href="#" class="fa fa-facebook"></a></li>
+            <li><a href="#" class="fa fa-twitter"></a></li>
+            <li><a href="#" class="fa fa-instagram"></a></li>
+            <li><a href="#" class="fa fa-linkedin"></a></li>
+            <li></li>
+        </ul>
+    </footer>
+</body>
+<script>
+    document.getElementById("logout-btn").addEventListener("click",function(){
+        window.location.href = "/";
+    });
+    const menuToggle = document.getElementById("menu-toggle");
+    const navUl = document.getElementById("nav-ul");
+
+    menuToggle.addEventListener("click", () => {
+        navUl.classList.toggle("show");
+    });
+
+    const loggedInUsername = '<%= loggedInUsername %>';/* retrieve the username from session or cookie */;
+
+        // Check if a user is logged in
+        if (loggedInUsername) {
+            // User is logged in, display their username
+            const welcomeMessage = document.getElementById("welcome-message");
+            welcomeMessage.textContent = `Welcome,${loggedInUsername}!`;
+        }
+</script>
+</html>

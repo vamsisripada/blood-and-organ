@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Donor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #b40a0a;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: "Courgette",sans-serif;
+        }
+
+        h2 {
+            margin: 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        section {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .get-donor-option {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            width: auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            font-size: 22px;
+        }
+
+        .get-donor-option:hover {
+            background-color: #eee;
+        }
+
+        form {
+            display: block;
+            width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        form label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        form input,
+        form select {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #b40a0a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #8a0c0c;
+        }
+
+        /* Style for the generated HTML table */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        /* Style for table headers (th) */
+        .styled-table th {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* Style for table data cells (td) */
+        .styled-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* Add some spacing between table rows */
+        .styled-table tr {
+            border: 1px solid #ddd;
+        }
+
+        /* Style for odd and even rows (alternating row colors) */
+        .styled-table tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover effect for rows (optional) */
+        .styled-table tr:hover {
+            background-color: #e6e6e6;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header>
+        <h1>Get a Donor</h1>
+    </header>
+    <h2>Choose the type of donor you need:</h2>
+    <section>
+        <a href="#plasmaForm" class="get-donor-option" onclick="showForm('plasmaForm');">
+            <h2>Get a Plasma Donor</h2>
+            <p>Find a plasma donor for your needs.</p>
+        </a>
+
+        <a href="#bloodForm" class="get-donor-option" onclick="showForm('bloodForm');">
+            <h2>Get a Blood Donor</h2>
+            <p>Find a blood donor for your requirements.</p>
+        </a>
+
+        <a href="#organForm" class="get-donor-option" onclick="showForm('organForm');">
+            <h2>Get an Organ Donor</h2>
+            <p>Find an organ donor for your specific needs.</p>
+        </a>
+    </section>
+    <form id="plasmaForm" style="display: none;" action="/search/plasma" method="post">
+        <h2>Search for a plasma donor:</h2>
+        <label for="bloodGroup">Blood Group:</label>
+        <select id="bloodGroup" name="bloodGroup" required>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+        
+        <label for="nation">Nation:</label>
+        <input type="text" id="nation" name="nation" placeholder="Enter Nation">
+        
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" placeholder="Enter State">
+        
+        <label for="district">District:</label>
+        <input type="text" id="district" name="district" placeholder="Enter District">
+        
+        <label for="townCity">Town/City:</label>
+        <input type="text" id="townCity" name="townCity" placeholder="Enter Town/City">
+        
+        <button type="submit" onclick="searchPlasma()">Search</button>
+    </form>
+    <div id="searchResultsContainer"></div>
+
+    <form id="bloodForm" style="display: none;" action="/search/blood" method="post">
+        <h2>Search for a Blood donor:</h2>
+        <label for="bloodGroup">Blood Group:</label>
+        <select id="bloodGroup" name="bloodGroup" required>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+
+        <label for="nation">Nation:</label>
+        <input type="text" id="nation" name="nation" placeholder="Enter Nation">
+        
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" placeholder="Enter State">
+        
+        <label for="district">District:</label>
+        <input type="text" id="district" name="district" placeholder="Enter District">
+        
+        <label for="townCity">Town/City:</label>
+        <input type="text" id="townCity" name="townCity" placeholder="Enter Town/City">
+        
+        <button type="submit" onclick="searchBlood()">Search</button>
+    </form>
+    <div id="searchResultsContainer"></div>
+
+    <form id="organForm" style="display: none;" action="/search/organ" method="post">
+        <h2>Search for a Organ donor:</h2>
+        <label for="bloodGroup">Blood Group:</label>
+        <select id="bloodGroup" name="bloodGroup" required>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+        <label for="organType">Organ Type:</label>
+        <select id="organType" name="organType" required>
+            <option value="Heart">Heart</option>
+            <option value="Kidney">Kidney</option>
+            <option value="Liver">Liver</option>
+            <option value="Lung">Lung</option>
+            <option value="Pancreas">Pancreas</option>
+            <option value="Intestines">Intestines</option>
+            <option value="Tissue">Tissue</option>
+            <option value="Bone">Bone</option>
+            <option value="All Organs">All</option>+
+        
+        </select>
+        <label for="nation">Nation:</label>
+        <input type="text" id="nation" name="nation" placeholder="Enter Nation">
+    
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" placeholder="Enter State">
+    
+        <label for="district">District:</label>
+        <input type="text" id="district" name="district" placeholder="Enter District">
+    
+        <label for="townCity">Town/City:</label>
+        <input type="text" id="townCity" name="townCity" placeholder="Enter Town/City">
+    
+        <button type="submit" onclick="searchOrgan()">Search</button>
+    </form>
+    <div id="searchResultsContainer"></div>
+    <script>
+        function showForm(formId) {
+                // Hide all forms
+            document.getElementById('plasmaForm').style.display = 'none';
+            document.getElementById('bloodForm').style.display = 'none';
+            document.getElementById('organForm').style.display = 'none';
+            document.getElementById('searchResultsContainer').style.display = 'none';
+                // Show the selected form
+            document.getElementById(formId).style.display = 'block';
+        }
+        function searchPlasma() {
+            const form = document.getElementById('plasmaForm');
+            const searchResultsContainer = document.getElementById('searchResultsContainer');
+            const formData = new FormData(form);
+            fetch('/search/plasma', {
+                method: 'POST',
+                body: formData,
+            })
+                .then((response) => response.text()) // Parse the response as text
+                .then((htmlTable) => {
+                    // Display the HTML table in the searchResultsContainer
+                    searchResultsContainer.innerHTML = htmlTable;
+                    searchResultsContainer.style.display = 'block'; // Show the container
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+        function searchBlood() {
+            const form = document.getElementById('bloodForm');
+            const searchResultsContainer = document.getElementById('searchResultsContainer');
+            const formData = new FormData(form);
+            fetch('/search/blood', {
+                method: 'POST',
+                body: formData,
+            })
+                .then((response) => response.text()) // Parse the response as text
+                .then((htmlTable) => {
+                    // Display the HTML table in the searchResultsContainer
+                    searchResultsContainer.innerHTML = htmlTable;
+                    searchResultsContainer.style.display = 'block'; // Show the container
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+        function searchOrgan() {
+            const form = document.getElementById('organForm');
+            const searchResultsContainer = document.getElementById('searchResultsContainer');
+            const formData = new FormData(form);
+            fetch('/search/organ', {
+                method: 'POST',
+                body: formData,
+            })
+                .then((response) => response.text()) // Parse the response as text
+                .then((htmlTable) => {
+                    // Display the HTML table in the searchResultsContainer
+                    searchResultsContainer.innerHTML = htmlTable;
+                    searchResultsContainer.style.display = 'block'; // Show the container
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+        function generateHTMLTable(results) {
+            if (results.length === 0) {
+                return '<p>No results found.</p>';
+            }
+
+            let tableHtml = '<table class="styled-table"><thead><tr>';
+            const keys = Object.keys(results[0]);
+            keys.forEach((key) => {
+                tableHtml += `<th>${key}</th>`;
+            });
+            tableHtml += '</tr></thead><tbody>';
+
+            results.forEach((result) => {
+                tableHtml += '<tr>';
+                keys.forEach((key) => {
+                    tableHtml += `<td>${result[key]}</td>`;
+                });
+                tableHtml += '</tr>';
+            });
+
+            tableHtml += '</tbody></table>';
+            return tableHtml;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1{
+            text-align: center;
+        }
+        .background-image {
+            position: absolute;
+            filter: blur(2px);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://t3.ftcdn.net/jpg/05/92/22/18/360_F_592221846_7FKq0dvmqk6UAp5OciKaNxLB19SH0xV9.jpg'); 
+            background-size: cover; /* Apply the blur effect, you can adjust the amount (5px) as needed */
+            z-index: -1; /* Place it behind other content */
+        }
+        .login-wrap {
+            background-color: #ffffff73;
+            width: 300px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px 0px #000;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .group {
+            margin-bottom: 20px;
+        }
+
+        .input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .button {
+            background-color: #090909;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #444343;
+        }
+
+        .hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 20px 0;
+        }
+
+        .foot-lnk {
+            text-align: center;
+        }
+
+        .foot-lnk a {
+            color: #0c0c0c;
+            text-decoration: none;
+        }
+
+        #alreadymember {
+            display: none;
+            margin-top: 10px;
+        }
+
+        #tab-1:checked~#alreadymember {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="background-image"></div>
+    <form class="login-wrap" action="/registersubmit" method="post" name="form">
+        <h1>Sign up</h1>
+        <div class="sign-up-htm">
+            <div class="group">
+                <label for="user" class="label">Username</label>
+                <input id="user" type="text" class="input" name="Username" required>
+            </div>
+            <div class="group">
+                <label for="pass" class="label" name="EmailAddress">Email Address</label>
+                <input id="pass" type="email" class="input" name="EmailAddress" required>
+            </div>
+            <div class="group">
+                <label for="pass" class="label" name="Password">Password</label>
+                <input id="pass" type="password" class="input" data-type="password" name="Password" required>
+            </div>
+            <div class="group">
+                <label for="pass" class="label" name="RepeatPassword">Repeat Password</label>
+                <input id="pass" type="password" class="input" data-type="password" name="RepeatPassword" required>
+            </div>
+            <div class="group">
+                <input type="submit" class="button" value="Sign Up">
+            </div>
+            <div class="hr"></div>
+            <div class="foot-lnk">
+                <a href="#alreadymember" id="tab-1">Already Member?</a>
+                <div id="alreadymember">
+                    <a href="login" class="login-button">Sign in</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+<script>
+    document.getElementById('tab-1').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default behavior of the link
+        var alreadymemberDiv = document.getElementById('alreadymember');
+        alreadymemberDiv.style.display = (alreadymemberDiv.style.display === 'none') ? 'block' : 'none';
+    });
+</script>
+</html>

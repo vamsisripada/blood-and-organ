@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #b40a0a;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: "Courgette",sans-serif;
+        }
+
+        section {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .m_donor-option {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            width: 450px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            font-size: 22px;
+        }
+
+        .m_donor-option:hover {
+            background-color: #ddd;
+        }
+
+        .card {
+            display: block;
+            width: 450px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        h2 {
+            margin: 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        form {
+            display: block;
+            width: 90%;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        form input,
+        form select {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #b40a0a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #8a0c0c;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" type="text/css">
+</head>
+    <body>
+      <div>
+            <header>
+                <h1>Be a Donor</h1>
+            </header>
+            <h2>Choose how you want to make a difference:</h2>
+            <section>
+                <a href="#one" class="m_donor-option" rel="noreferrer" onclick="showForm('one');">
+                    <h2>Plasma Donor</h2>
+                    <p>Help save lives by donating plasma.</p>
+                </a>
+        
+                <a href="#two" class="m_donor-option" rel="noreferrer" onclick="showForm('two');">
+                    <h2>Blood Donor</h2>
+                    <p>Donate blood and make a difference.</p>
+                </a>
+        
+                <a href="#three" class="m_donor-option" rel="noreferrer" onclick="showForm('three');">
+                    <h2>Organ Donor</h2>
+                    <p>Consider organ donation for a better future.</p>
+                </a>
+            </section>
+            <div id="one" class="card" style="display: none;">
+            <form id="plasmaForm" action="/submit/plasma" method="post">
+                <h2>Plasma Donation Form</h2>
+                <label for="m_name">Full Name:</label>
+                <input type="text" id="m_name" name="name" placeholder="Enter name" required>
+            
+                <label for="m_email">Email:</label>
+                <input type="email" id="m_email" name="email" placeholder="Enter email" required>
+            
+                <label for="m_phone">Phone Number:</label>
+                <input type="tel" id="m_phone" name="phone" placeholder="Enter phonbe number" required>
+            
+                <label for="m_blood-group">Blood Group:</label>
+                <select id="m_blood_group" name="bloodGroup">
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+
+                <label for="m_country">Country:</label>
+                <input type="text" id="m_country" name="country" placeholder="Enter Country" required>
+                
+                <label for="m_state">State:</label>
+                <input type="text" id="m_state" name="state" placeholder="Enter State" required>
+                
+                <label for="m_district">District:</label>
+                <input type="text" id="m_district" name="district" placeholder="Enter District" required>
+                
+                <label for="m_townCity">Town/City:</label>
+                <input type="text" id="m_townCity" name="townCity" placeholder="Enter Town/City" required>
+            
+                <form id="myform">
+                <button type="submit">Submit</button>
+                </form>
+            </form>
+        </div>
+        <div id="two" class="card" style="display: none;">
+            <form id="bloodForm" action="/submit/blood" method="post">
+                <h2>Blood Donation Form</h2>
+                <label for="m_name">Full Name:</label>
+                <input type="text" id="m_name" name="name" placeholder="Enter name"required>
+            
+                <label for="m_email">Email:</label>
+                <input type="email" id="m_email" name="email" placeholder="Enter email" required>
+            
+                <label for="m_phone">Phone Number:</label>
+                <input type="tel" id="m_phone" name="phone" placeholder="Enter phonbe number" required>
+            
+                <label for="m_blood-type">Blood Type:</label>
+                <select id="m_blood-type" name="bloodGroup">
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+
+                <label for="m_country">Country:</label>
+                <input type="text" id="m_country" name="country" placeholder="Enter Country" required>
+                
+                <label for="m_state">State:</label>
+                <input type="text" id="m_state" name="state" placeholder="Enter State" required>
+                
+                <label for="m_district">District:</label>
+                <input type="text" id="m_district" name="district" placeholder="Enter District" required>
+                
+                <label for="m_townCity">Town/City:</label>
+                <input type="text" id="m_townCity" name="townCity" placeholder="Enter Town/City" required>
+            
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div id="three" class="card" style="display: none;">
+            <form id="organForm" action="/submit/organ" method="post">
+                <h2>Organ Donation Form</h2>
+                <label for="m_name">Full Name:</label>
+                <input type="text" id="m_name" name="name" placeholder="Enter name" required>
+                
+                <label for="m_email">Email:</label>
+                <input type="email" id="m_email" name="email" placeholder="Enter email" required>
+                
+                <label for="m_phone">Phone Number:</label>
+                <input type="tel" id="m_phone" name="phone" placeholder="Enter phonbe number" required>
+        
+                <label for="m_blood-type">Blood Type:</label>
+                <select id="m_blood-type" name="bloodGroup" required>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+        
+                <label for="m_organ-type">Organ Type:</label>
+                <select id="m_organ-type" name="organType" required>
+                    <option value="Heart">Heart</option>
+                    <option value="Kidney">Kidney</option>
+                    <option value="Liver">Liver</option>
+                    <option value="Lung">Lung</option>
+                    <option value="Pancreas">Pancreas</option>
+                    <option value="Intestines">Intestines</option>
+                    <option value="Tissue">Tissue</option>
+                    <option value="Bone">Bone</option>
+                    <option value="All Organs">All</option>
+
+                </select>
+
+                <label for="m_country">Country:</label>
+                <input type="text" id="m_country" name="country" placeholder="Enter Country" required>
+                
+                <label for="m_state">State:</label>
+                <input type="text" id="m_state" name="state" placeholder="Enter State" required>
+                
+                <label for="m_district">District:</label>
+                <input type="text" id="m_district" name="district" placeholder="Enter District" required>
+                
+                <label for="m_townCity">Town/City:</label>
+                <input type="text" id="m_townCity" name="townCity" placeholder="Enter Town/City" required>
+        
+                <button type="submit">Submit</button>
+            </form>
+         </div>
+         <script>
+            function showForm(formId) {
+                document.getElementById('one').style.display = 'none';
+                document.getElementById('two').style.display = 'none';
+                document.getElementById('three').style.display = 'none';
+
+                document.getElementById(formId).style.display = 'block';
+            }
+         </script>
+       </body>
+</html>
